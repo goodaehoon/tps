@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Precompiled.cpp" />
+    <ClCompile Include="ClientDispatcher.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="GameManager.cpp" />
+    <ClCompile Include="ConfigManager.cpp" />
+    <ClCompile Include="DBDispatcher.cpp" />
+    <ClCompile Include="InterDispatcher.cpp" />
+    <ClCompile Include="UserManager.cpp" />
+    <ClCompile Include="User.cpp" />
+    <ClCompile Include="TimerDispatcher.cpp" />
+    <ClCompile Include="RedisDispatcher.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompiled.h" />
+    <ClInclude Include="ClientDispatcher.h" />
+    <ClInclude Include="GamePacket.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="GameManager.h" />
+    <ClInclude Include="ConfigManager.h" />
+    <ClInclude Include="InterPacket.h" />
+    <ClInclude Include="GlobalDefines.h" />
+    <ClInclude Include="DBDispatcher.h" />
+    <ClInclude Include="InterDispatcher.h" />
+    <ClInclude Include="UserManager.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="TimerDispatcher.h" />
+    <ClInclude Include="RedisDispatcher.h" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,1 @@
+b2 variant=debug,release optimization=speed debug-symbols=off runtime-debugging=on inlining=on link=static threading=multi runtime-link=static --with-date_time --with-filesystem --with-serialization --with-system --with-thread --with-regex

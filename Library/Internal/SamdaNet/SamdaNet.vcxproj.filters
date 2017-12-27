@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Precompiled.cpp" />
+    <ClCompile Include="Acceptor.cpp" />
+    <ClCompile Include="AcceptorManager.cpp" />
+    <ClCompile Include="AcceptThread.cpp" />
+    <ClCompile Include="Dispatcher.cpp" />
+    <ClCompile Include="EventObject.cpp" />
+    <ClCompile Include="IOMultiplexer.cpp" />
+    <ClCompile Include="NetworkThread.cpp" />
+    <ClCompile Include="Session.cpp" />
+    <ClCompile Include="SessionManager.cpp" />
+    <ClCompile Include="Socket.cpp" />
+    <ClCompile Include="SamdaNet.cpp" />
+    <ClCompile Include="Mutex.cpp" />
+    <ClCompile Include="MainThread.cpp" />
+    <ClCompile Include="MessageQueue.cpp" />
+    <ClCompile Include="DBThread.cpp" />
+    <ClCompile Include="DBManager.cpp" />
+    <ClCompile Include="ByteBuffer.cpp" />
+    <ClCompile Include="Stream.cpp" />
+    <ClCompile Include="TimerQueue.cpp" />
+    <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="RedisThread.cpp" />
+    <ClCompile Include="RedisManager.cpp" />
+    <ClCompile Include="Redis.cpp" />
+    <ClCompile Include="MySQLConnector.cpp" />
+    <ClCompile Include="Connector.cpp" />
+    <ClCompile Include="ConnectorManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompiled.h" />
+    <ClInclude Include="Acceptor.h" />
+    <ClInclude Include="AcceptorManager.h" />
+    <ClInclude Include="AcceptThread.h" />
+    <ClInclude Include="CommonTypes.h" />
+    <ClInclude Include="Dispatcher.h" />
+    <ClInclude Include="EventObject.h" />
+    <ClInclude Include="IOMultiplexer.h" />
+    <ClInclude Include="NetworkThread.h" />
+    <ClInclude Include="Session.h" />
+    <ClInclude Include="SessionManager.h" />
+    <ClInclude Include="Socket.h" />
+    <ClInclude Include="SamdaNet.h" />
+    <ClInclude Include="Mutex.h" />
+    <ClInclude Include="MemoryPool.h" />
+    <ClInclude Include="MainThread.h" />
+    <ClInclude Include="PacketHeader.h" />
+    <ClInclude Include="MessageQueue.h" />
+    <ClInclude Include="DBThread.h" />
+    <ClInclude Include="DBManager.h" />
+    <ClInclude Include="ByteBuffer.h" />
+    <ClInclude Include="Stream.h" />
+    <ClInclude Include="InterMsgHeader.h" />
+    <ClInclude Include="TimerQueue.h" />
+    <ClInclude Include="Timer.h" />
+    <ClInclude Include="RedisThread.h" />
+    <ClInclude Include="RedisManager.h" />
+    <ClInclude Include="Redis.h" />
+    <ClInclude Include="MySQLConnector.h" />
+    <ClInclude Include="Connector.h" />
+    <ClInclude Include="ConnectorManager.h" />
+  </ItemGroup>
+</Project>

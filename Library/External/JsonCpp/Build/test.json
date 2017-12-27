@@ -1,0 +1,19 @@
+{
+	"age" : 19,
+	"friends" : 
+	[
+		{
+			"age" : 21,
+			"name" : "Tom"
+		},
+		{
+			"age" : 23,
+			"name" : "Jane"
+		}
+	],
+	"hasCar" : false,
+	"id" : "Luna",
+	"items" : [ "notebook", "ipad", "iphone7" ],
+	"name" : "Silver"
+}
+

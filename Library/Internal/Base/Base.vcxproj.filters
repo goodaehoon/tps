@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Precompiled.cpp" />
+    <ClCompile Include="ConfigReader.cpp" />
+    <ClCompile Include="FileUtil.cpp" />
+    <ClCompile Include="StringUtil.cpp" />
+    <ClCompile Include="RandomUtil.cpp" />
+    <ClCompile Include="TimeUtil.cpp" />
+    <ClCompile Include="Thread.cpp" />
+    <ClCompile Include="Log.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Precompiled.h" />
+    <ClInclude Include="ConfigReader.h" />
+    <ClInclude Include="FileUtil.h" />
+    <ClInclude Include="StringUtil.h" />
+    <ClInclude Include="RandomUtil.h" />
+    <ClInclude Include="TimeUtil.h" />
+    <ClInclude Include="Thread.h" />
+    <ClInclude Include="Log.h" />
+    <ClInclude Include="BaseDefines.h" />
+  </ItemGroup>
+</Project>
