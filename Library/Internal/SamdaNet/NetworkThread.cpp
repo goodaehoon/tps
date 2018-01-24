@@ -4,16 +4,26 @@
 #include "EventObject.h"
 #include "IOMultiplexer.h"
 
-NetworkThread::NetworkThread(SamdaNet& samdanet)
-	: samdanet(samdanet)
+NetworkThread::NetworkThread()
+	: pNetEngine(nullptr)
 {
+}
+
+NetworkThread::NetworkThread(SamdaNet* pNet)
+	: pNetEngine(pNet)
+{
+}
+
+void NetworkThread::SetNetEngine(SamdaNet* pNet)
+{
+	pNetEngine = pNet;
 }
 
 void* NetworkThread::Process()
 {
-	while(samdanet.IsRunning())
+	while(pNetEngine->IsRunning())
 	{
-		samdanet.GetIOMultiplexer()->waitForEvents();
+		pNetEngine->GetIOMultiplexer()->waitForEvents();
 	}
 
 	return nullptr;

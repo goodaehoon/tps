@@ -7,11 +7,13 @@ class SamdaNet;
 class NetworkThread : public Thread
 {
 private:
-	SamdaNet& samdanet;
+	SamdaNet* pNetEngine;
 
 public:
-	NetworkThread(SamdaNet& samdanet);
+	NetworkThread();
+	NetworkThread(SamdaNet* pNet);
 
+	void SetNetEngine(SamdaNet* pNet);
 	void* Process();
 };
 

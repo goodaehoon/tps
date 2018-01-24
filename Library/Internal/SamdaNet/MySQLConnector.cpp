@@ -133,7 +133,7 @@ bool MySQL::DoQuery()
 
 		// 아래의 경우에는 서버와 재연결을 시도해본다
 		if (db_errno == CR_SERVER_GONE_ERROR || db_errno == CR_SERVER_LOST
-			|| db_errno == CR_UNKNOWN_HOST || CR_CONN_HOST_ERROR)
+			|| db_errno == CR_UNKNOWN_HOST || db_errno == CR_CONN_HOST_ERROR)
 		{
 			LOG_CORE(L"mysql connection lost (error: %d), try reconnect", db_errno);
 

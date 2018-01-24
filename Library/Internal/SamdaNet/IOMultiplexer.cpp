@@ -117,21 +117,34 @@ bool IOMultiplexer::unregist(int fd)
 #ifdef _WINDOWS
 void IOMultiplexer::waitForEvents()
 {
-	LPOVERLAPPED	overlapped = nullptr;
+	LPOVERLAPPED	pOverlapped = nullptr;
 	unsigned long	transferred = 0;
 	ULONG_PTR		key = 0;
 	BOOL			result = FALSE;	
 
-	result = GetQueuedCompletionStatus(_iocp, &transferred, &key, &overlapped, INFINITE);
-	if (result == FALSE || overlapped == NULL)
+	result = GetQueuedCompletionStatus(_iocp, &transferred, &key, &pOverlapped, INFINITE);
+
+	if (result == FALSE)
 	{
-		// 작업도 실패하고 overlapped도 null인 경우는 처리할 수 없는 경우이다
-		// TODO print critical log
-		LOG_CORE(L"%u\n", GetLastError());
+		if (pOverlapped == NULL)
+		{
+			// 이 경우는 타임아웃(WAIT_TIMEOUT)이나 IOCP 핸들을 닫은 경우(ERROR_ABANDONED_WAIT_O) 발생한다
+			if (GetLastError() != WAIT_TIMEOUT)
+			{
+				// IOCP 자체 에러인 경우로 더 이상 IOCP를 사용할 수 없는 경우이다
+				LOG_CORE(L"pOverlapped is NULL (%u)\n", GetLastError());
+			}			
+		}
+		else
+		{
+			// 입출력 장치의 작업과정에서 에러가 발생한 경우
+			LOG_CORE(L"IO operation error (%u)\n", GetLastError());
+		}
+
 		return;
 	}
 
-	Overlapped* o = (Overlapped*)overlapped;
+	Overlapped* o = (Overlapped*)pOverlapped;
 	o->Dispatch(result ? true : false, transferred);
 }
 #else

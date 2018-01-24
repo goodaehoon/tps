@@ -49,8 +49,11 @@ void LogFile::OpenFile(const wstring& logPath)
 
 void LogFile::Write(const wstring& logPath, const wchar_t* funcName, int lineNo, const wchar_t* message)
 {
-	wchar_t header[128] = { 0, };
-	wchar_t buffer[LINE_BUFFER] = { 0, };
+	static wchar_t header[128] = { 0, };
+	static wchar_t buffer[LINE_BUFFER] = { 0, };
+
+	if (logPath.empty())
+		return;
 
 	if (fp == NULL)
 		OpenFile(logPath);
@@ -104,7 +107,7 @@ LogHelper::LogHelper(LogType type, const wchar_t* funcName, int lineNo)
 
 void LogHelper::operator()(const wchar_t* message, ...)
 {
-	wchar_t buffer[LINE_BUFFER] = { 0, };
+	static wchar_t buffer[LINE_BUFFER] = { 0, };
 
 	va_list args;
 	va_start(args, message);

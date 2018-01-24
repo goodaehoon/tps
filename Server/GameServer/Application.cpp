@@ -50,16 +50,32 @@ bool Application::Init(int argc, wchar_t* argv[])
 	CreateObjects();
 
 	// 설정 cfg 읽기
-	ReadConfig(argc, argv);
+	if (!ReadConfig(argc, argv))
+	{
+		LOG_INFO(L"ReadConfig error");
+		return false;
+	}
 
 	// 네트워크 설정
-	OpenNetwork();
+	if (!OpenNetwork())
+	{
+		LOG_INFO(L"OpenNetwork error");
+		return false;
+	}
 
 	// DB 연결
-	ConnectDB();
+	if (!ConnectDB())
+	{
+		LOG_INFO(L"ConnectDB error");
+		return false;
+	}
 
 	// 레디스 연결
-	ConnectRedis();
+	if (!ConnectRedis())
+	{
+		LOG_INFO(L"ConnectRedis error");
+		return false;
+	}
 
 	// 각종 게임에 필요한 객체들 초기화
 	InitGameObjects();

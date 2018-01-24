@@ -61,7 +61,15 @@ bool SamdaNet::Init()
 	redisThread = new RedisThread(*this);
 
 	// IO를 담당할 네트워크 스레드 생성 (Worker Thread)
-	networkThread = new NetworkThread(*this);
+#ifdef _WINDOWS
+	networkThread = new NetworkThread[4];
+	for (int i = 0; i < 4; ++i)
+	{
+		networkThread[i].SetNetEngine(this);
+	}
+#else //_WINDOWS
+	networkThread = new NetworkThread(this);
+#endif //_WINDOWS
 
 	// 패킷을 처리할 메인스레드(Logic Thread) 생성
 	mainThread = new MainThread(*this);
@@ -103,7 +111,11 @@ void SamdaNet::Close()
 	SAFE_DELETE(dbThread);
 	SAFE_DELETE(redisThread);
 	SAFE_DELETE(mainThread);
+#ifdef _WINDOWS
+	SAFE_DELETES(networkThread);
+#else //_WINDOWS
 	SAFE_DELETE(networkThread);
+#endif //_WINDOWS
 	SAFE_DELETE(sessionManager);
 	SAFE_DELETE(messageQueue);
 	SAFE_DELETE(timerQueue);
